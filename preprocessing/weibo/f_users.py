@@ -2,7 +2,7 @@ import pandas as pd
 
 pd.set_option('display.max_columns', None)  # per mostrare tutte le colonne
 
-general = "../../datasets/general/fusers.csv"
+general = "../../datasets/weibo/fusers.csv"
 fake_users = pd.read_csv(general, sep=',')
 # print(dataset.head())
 

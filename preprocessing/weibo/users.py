@@ -2,7 +2,7 @@ import pandas as pd
 
 pd.set_option('display.max_columns', None)  # per mostrare tutte le colonne
 
-general = "../../datasets/general/users.csv"
+general = "../../datasets/weibo/users.csv"
 real_users = pd.read_csv(general, sep=',')
 # print(dataset.head())
 
