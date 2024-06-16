@@ -1,1 +1,2 @@
 datasets/kaggle.csv filter=lfs diff=lfs merge=lfs -text
+training/random_forest/rf_model.pkl filter=lfs diff=lfs merge=lfs -text
