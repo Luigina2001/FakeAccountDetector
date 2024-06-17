@@ -29,13 +29,13 @@ def save_model(model, model_filename):
         print(f"Errore nel salvataggio del modello: {e}")
 
 def evaluate_model(model, X_test, y_test):
-    y_pred_rf = model.predict(X_test)
-    accuracy_rf = accuracy_score(y_test, y_pred_rf)
-    print(f'Accuracy: {accuracy_rf}')
+    y_pred = model.predict(X_test)
+    accuracy = accuracy_score(y_test, y_pred)
+    print(f'Accuracy: {accuracy}')
     print('Classification Report:')
-    print(classification_report(y_test, y_pred_rf))
+    print(classification_report(y_test, y_pred))
     print('Confusion Matrix:')
-    print(confusion_matrix(y_test, y_pred_rf))
+    print(confusion_matrix(y_test, y_pred))
 
 def plot_and_save_confusion_matrix(model, X_test, y_test, type_model):
     model_names = {'rf': 'Random Forest', 'dt': 'Decision Tree', 'svm': 'Support Vector Machine', 'knn': 'K-Nearest Neighbors'}
