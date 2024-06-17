@@ -38,6 +38,9 @@ def evaluate_model(model, X_test, y_test):
     print(confusion_matrix(y_test, y_pred_rf))
 
 def plot_and_save_confusion_matrix(model, X_test, y_test, type_model):
+    model_names = {'rf': 'Random Forest', 'dt': 'Decision Tree', 'svm': 'Support Vector Machine', 'knn': 'K-Nearest Neighbors'}
+    full_model_name = model_names[type_model]
+
     y_pred = model.predict(X_test)
     cm = confusion_matrix(y_test, y_pred)
     fig, ax = plt.subplots()
@@ -48,7 +51,7 @@ def plot_and_save_confusion_matrix(model, X_test, y_test, type_model):
            ylabel='True label',
            xlabel='Predicted label')
 
-    ax.set_title('Confusion Matrix for Random Forest Model')
+    ax.set_title(f'Confusion Matrix for {full_model_name} Model')
 
     for i in range(cm.shape[0]):
         for j in range(cm.shape[1]):
