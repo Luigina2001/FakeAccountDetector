@@ -8,9 +8,9 @@ dataset_path = '../../dataset_normalizzato/user_fake_authentic_2class_cleaned.cs
 
 def train_model(train, y_train):
     param_grid = {
-        'C': [0.1, 1, 10, 100, 1000],
-        'gamma': [1, 0.1, 0.01, 0.001, 0.0001],
-        'kernel': ['rbf']
+        'C': [0.1, 1, 10, 100, 1000], # Parametro di regolarizzazione
+        'gamma': [1, 0.1, 0.01, 0.001, 0.0001], # Coefficiente del kernel
+        'kernel': ['rbf'] # Tipo di kernel
     }
     svm = SVC()
     grid_search = GridSearchCV(estimator=svm, param_grid=param_grid, refit=True, verbose=3)

@@ -10,7 +10,7 @@ def train_model(train, y_train):
     param_grid = {
         'n_neighbors': [3, 5, 11],  # Numero di vicini
         'weights': ['uniform', 'distance'],  # Funzione peso utilizzata nella previsione
-        'metric': ['minkowski', 'euclidean', 'cosine', 'jaccard']  # Metrica da utilizzare per il calcolo della distanza
+        'metric': ['minkowski', 'euclidean', 'cosine']  # Metrica da utilizzare per il calcolo della distanza
     }
     knn = KNeighborsClassifier()
     grid_search = GridSearchCV(estimator=knn, param_grid=param_grid, cv=5, n_jobs=-1, verbose=2)
