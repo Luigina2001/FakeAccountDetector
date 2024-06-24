@@ -1,8 +1,6 @@
 from sklearn.model_selection import GridSearchCV
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import roc_curve, auc
-from sklearn.model_selection import train_test_split
-import pandas as pd
 from training.utils import *
 
 model_filename = 'knn_model.pkl'
@@ -45,28 +43,8 @@ def plot_roc_curve(model, test, y_test):
     plt.show()
 
 
-def load_data(dataset_path, label_column='class'):
-    # Carica il dataset
-    data = pd.read_csv(dataset_path)
-
-    # Estrai le caratteristiche (features) e l'etichetta (label)
-    X = data.drop(columns=[label_column])
-    y = data[label_column]
-
-    # Dividi il dataset in train e test set
-    train, test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-
-    return train, test, y_train, y_test
-
-
 def main():
-    label_column = 'class'
-    train, test, y_train, y_test = load_data(dataset_path, label_column=label_column)
-    # train, test, y_train, y_test = load_data(dataset_path)
-
-    # Stampa delle classi univoche presenti nel dataset
-    print(f"Classi presenti nel dataset di addestramento: {set(y_train)}")
-    print(f"Classi presenti nel dataset di test: {set(y_test)}")
+    train, test, y_train, y_test = load_data(dataset_path)
 
     model = load_model(model_filename)
     if model is None:

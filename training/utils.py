@@ -6,6 +6,7 @@ import pickle
 import os
 import matplotlib.pyplot as plt
 
+
 def load_data(dataset_path):
     df = pd.read_csv(dataset_path)
     df['class'] = df['class'].map({'r': 0, 'f': 1})
@@ -13,12 +14,14 @@ def load_data(dataset_path):
     y = df['class'] # Variabile dipendente
     return train_test_split(X, y, test_size=0.2, random_state=42)
 
+
 def load_model(model_filename):
     if os.path.exists(model_filename):
         print("Modello salvato trovato. Caricamento del modello...")
         with open(model_filename, 'rb') as f:
             return pickle.load(f)
     return None
+
 
 def save_model(model, model_filename):
     try:
@@ -28,6 +31,7 @@ def save_model(model, model_filename):
     except Exception as e:
         print(f"Errore nel salvataggio del modello: {e}")
 
+
 def evaluate_model(model, X_test, y_test):
     y_pred = model.predict(X_test)
     accuracy = accuracy_score(y_test, y_pred)
@@ -36,6 +40,7 @@ def evaluate_model(model, X_test, y_test):
     print(classification_report(y_test, y_pred))
     print('Confusion Matrix:')
     print(confusion_matrix(y_test, y_pred))
+
 
 def plot_and_save_confusion_matrix(model, X_test, y_test, type_model):
     model_names = {'rf': 'Random Forest', 'dt': 'Decision Tree', 'svm': 'Support Vector Machine', 'knn': 'K-Nearest Neighbors'}
