@@ -35,11 +35,11 @@ def plot_roc_curve(model, test, y_test):
     plt.ylim([0.0, 1.05])
     plt.xlabel('Tasso di Falsi Positivi')
     plt.ylabel('Tasso di Veri Positivi')
-    plt.title('Curva ROC (Receiver Operating Characteristic)')
+    plt.title('Curva ROC (Receiver Operating Characteristic) - KNN')
     plt.legend(loc='lower right')
 
     # Salvataggio della ROC curve come immagine
-    plt.savefig('roc_curve.png')
+    plt.savefig('knn_roc_curve.png')
     plt.show()
 
 
@@ -51,9 +51,15 @@ def main():
         model = train_model(train, y_train)
         save_model(model, model_filename)
     evaluate_model(model, test, y_test)
-    plot_and_save_confusion_matrix(model, test, y_test, 'knn')
 
-    # Plot della ROC curve
+    parameters = model.get_params()
+
+    print("\nMigliori parametri trovati dalla Grid Search:")
+    print(f"n_neighbors: {parameters['n_neighbors']}")
+    print(f"weights: {parameters['weights']}")
+    print(f"metric: {parameters['metric']}")
+
+    plot_and_save_confusion_matrix(model, test, y_test, 'knn')
     plot_roc_curve(model, test, y_test)
 
 

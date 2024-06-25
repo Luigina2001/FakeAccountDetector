@@ -16,7 +16,7 @@ def train_model(train, y_train):
     svm = SVC(probability=True)
     grid_search = GridSearchCV(estimator=svm, param_grid=param_grid, refit=True, verbose=3)
     grid_search.fit(train, y_train)
-    return grid_search.best_estimator_
+    return grid_search.best_estimator_\
 
 
 def plot_roc_curve(model, test, y_test):
@@ -35,11 +35,10 @@ def plot_roc_curve(model, test, y_test):
     plt.ylim([0.0, 1.05])
     plt.xlabel('Tasso di Falsi Positivi')
     plt.ylabel('Tasso di Veri Positivi')
-    plt.title('Curva ROC (Receiver Operating Characteristic)')
+    plt.title('Curva ROC (Receiver Operating Characteristic) - SVM')
     plt.legend(loc='lower right')
 
-    # Salvataggio della ROC curve come immagine
-    plt.savefig('roc_curve.png')
+    plt.savefig('svm_roc_curve.png')
     plt.show()
 
 
@@ -51,9 +50,15 @@ def main():
         model = train_model(train, y_train)
         save_model(model, model_filename)
     evaluate_model(model, test, y_test)
-    plot_and_save_confusion_matrix(model, test, y_test, 'svm')
 
-    # Plot della ROC curve
+    parameters = model.get_params()
+
+    print("\nMigliori parametri trovati dalla Grid Search:")
+    print(f"C: {parameters['C']}")
+    print(f"gamma: {parameters['gamma']}")
+    print(f"kernel: {parameters['kernel']}")
+
+    plot_and_save_confusion_matrix(model, test, y_test, 'svm')
     plot_roc_curve(model, test, y_test)
 
 
