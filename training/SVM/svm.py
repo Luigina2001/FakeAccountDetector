@@ -19,6 +19,7 @@ def train_model(train, y_train):
     return grid_search.best_estimator_\
 
 
+
 def plot_roc_curve(model, test, y_test):
     # Calcolo delle probabilità previste dal modello
     y_prob = model.predict_proba(test)[:, 1]
