@@ -40,7 +40,7 @@ def plot_roc_curve(model, test, y_test):
 
     # Salvataggio della ROC curve come immagine
     plt.savefig('knn_roc_curve.png')
-    plt.show()
+    # plt.show()
 
 
 def main():

@@ -1,4 +1,4 @@
-from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+from sklearn.metrics import (accuracy_score, precision_score, recall_score, f1_score, classification_report, confusion_matrix)
 from sklearn.model_selection import train_test_split
 import pandas as pd
 import numpy as np
@@ -17,7 +17,7 @@ def load_data(dataset_path):
 
 def load_model(model_filename):
     if os.path.exists(model_filename):
-        print("Modello salvato trovato. Caricamento del modello...")
+        print("Modello salvato trovato. Caricamento del modello...\n")
         with open(model_filename, 'rb') as f:
             return pickle.load(f)
     return None
@@ -34,13 +34,28 @@ def save_model(model, model_filename):
 
 def evaluate_model(model, X_test, y_test):
     y_pred = model.predict(X_test)
+
+    report = classification_report(y_test, y_pred, output_dict=True)
     accuracy = accuracy_score(y_test, y_pred)
-    print(f'Accuracy: {accuracy}')
+    precision = report['macro avg']['precision']
+    recall = report['macro avg']['recall']
+    f1 = report['macro avg']['f1-score']
+
     print('Classification Report:')
     print(classification_report(y_test, y_pred))
+
+    print(f'Accuracy: {round(accuracy, 2)}')
+    print(f'Precision: {round(precision, 2)}')
+    print(f'Recall: {round(recall, 2)}')
+    print(f'F1 Score: {round(f1, 2)}\n')
+
     print('Confusion Matrix:')
     print(confusion_matrix(y_test, y_pred))
 
+    # salvataggio delle metriche in un file csv
+    with open('metrics.csv', 'w') as f:
+        f.write('accuracy, precision, recall, f1-score\n')
+        f.write(f'{accuracy}, {precision}, {recall}, {f1}')
 
 def plot_and_save_confusion_matrix(model, X_test, y_test, type_model):
     model_names = {'rf': 'Random Forest', 'dt': 'Decision Tree', 'svm': 'Support Vector Machine', 'knn': 'K-Nearest Neighbors'}

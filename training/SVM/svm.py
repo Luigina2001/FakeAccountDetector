@@ -40,7 +40,7 @@ def plot_roc_curve(model, test, y_test):
     plt.legend(loc='lower right')
 
     plt.savefig('svm_roc_curve.png')
-    plt.show()
+    # plt.show()
 
 
 def main():
