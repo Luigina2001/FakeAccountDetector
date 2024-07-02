@@ -2,9 +2,7 @@ import os
 import pandas as pd
 from tqdm import tqdm
 from data_initialization import initialize_data
-# from model_training import RF_prediction, DT_prediction, SVC_prediction, knn_prediction
-from model_training_with_grid_search import RF_prediction, DT_prediction, SVC_prediction, knn_prediction
-
+from model_training import RF_prediction, DT_prediction, SVC_prediction, knn_prediction
 
 def main():
     full_datasets = [f'{x}' for x in os.listdir('../../DatasetAfterFeatureSelection/')]
