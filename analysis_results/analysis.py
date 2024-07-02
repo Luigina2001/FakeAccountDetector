@@ -58,10 +58,55 @@ def main():
     data_without_rfd = pd.concat(data_without_rfd_list, ignore_index=True)
 
     # Creazione dei grafici
-    plot_comparison('model', 'accuracy', 'RFD', pd.concat([data_with_rfd, data_without_rfd]), 'Confronto dell\'Accuratezza tra Modelli con e senza RFD', 'Accuratezza', 'Modello', 'accuracy_comparison.png')
-    plot_comparison('model', 'precision', 'RFD', pd.concat([data_with_rfd, data_without_rfd]), 'Confronto della Precisione tra Modelli con e senza RFD', 'Precisione', 'Modello', 'precision_comparison.png')
-    plot_comparison('model', 'recall', 'RFD', pd.concat([data_with_rfd, data_without_rfd]), 'Confronto della Recall tra Modelli con e senza RFD', 'Recall', 'Modello', 'recall_comparison.png')
-    plot_comparison('model', 'f1-score', 'RFD', pd.concat([data_with_rfd, data_without_rfd]), 'Confronto dell\'F1-Score tra Modelli con e senza RFD', 'F1-Score', 'Modello', 'f1_comparison.png')
+    plot_comparison('model', 'accuracy', 'RFD', pd.concat([data_with_rfd, data_without_rfd]),
+                    'Confronto dell\'Accuratezza tra Modelli con e senza RFD', 'Accuratezza', 'Modello', 'accuracy_comparison.png')
+    plot_comparison('model', 'precision', 'RFD', pd.concat([data_with_rfd, data_without_rfd]),
+                    'Confronto della Precisione tra Modelli con e senza RFD', 'Precisione', 'Modello', 'precision_comparison.png')
+    plot_comparison('model', 'recall', 'RFD', pd.concat([data_with_rfd, data_without_rfd]),
+                    'Confronto della Recall tra Modelli con e senza RFD', 'Recall', 'Modello', 'recall_comparison.png')
+    plot_comparison('model', 'f1-score', 'RFD', pd.concat([data_with_rfd, data_without_rfd]),
+                    'Confronto dell\'F1-Score tra Modelli con e senza RFD', 'F1-Score', 'Modello', 'f1_comparison.png')
+
+    #
+    data_with_rfd_rf_4 = data_with_rfd[(data_with_rfd['dataset'].str.contains('threshold_0_EXTENDED_0.4')) & (data_with_rfd['model'] == 'RF')]
+    data_with_rfd_dt_4 = data_with_rfd[(data_with_rfd['dataset'].str.contains('threshold_0_EXTENDED_0.4')) & (data_with_rfd['model'] == 'DT')]
+
+    data_with_rfd_rf_5 = data_with_rfd[(data_with_rfd['dataset'].str.contains('threshold_0_EXTENDED_0.5')) & (data_with_rfd['model'] == 'RF')]
+    data_with_rfd_dt_5 = data_with_rfd[(data_with_rfd['dataset'].str.contains('threshold_0_EXTENDED_0.5')) & (data_with_rfd['model'] == 'DT')]
+
+    # Creazione dei grafici
+    df_rf4 = pd.concat([data_with_rfd_rf_4, data_without_rfd[data_without_rfd['model'] == 'RF']])
+    df_dt4 = pd.concat([data_with_rfd_dt_4, data_without_rfd[data_without_rfd['model'] == 'DT']])
+
+    df_rf5 = pd.concat([data_with_rfd_rf_5, data_without_rfd[data_without_rfd['model'] == 'RF']])
+    df_dt5 = pd.concat([data_with_rfd_dt_5, data_without_rfd[data_without_rfd['model'] == 'DT']])
+
+    df_final4 = pd.concat([df_rf4, df_dt4])
+    plot_comparison('model', 'accuracy', 'RFD', df_final4,
+                    'Confronto dell\'Accuratezza tra Random Forest e Decision Tree \ln con e senza RFD (Threshold 0 - Extend 0.4)', 'Accuratezza', 'Modello', 'accuracy_comparison_thr0_ext4.png')
+
+    plot_comparison('model', 'precision', 'RFD', df_final4,
+                    'Confronto della Precisione tra Random Forest e Decision Tree con e senza RFD (Threshold 0 - Extend 0.4)', 'Precisione', 'Modello', 'precision_comparison_thr0_ext4.png')
+
+    plot_comparison('model', 'recall', 'RFD', df_final4,
+                    'Confronto della Recall tra Random Forest e Decision Tree con e senza RFD (Threshold 0 - Extend 0.4)', 'Recall', 'Modello', 'recall_comparison_thr0_ext4.png')
+
+    plot_comparison('model', 'f1-score', 'RFD', df_final4,
+                    'Confronto dell\'F1-Score tra Random Forest e Decision Tree con e senza RFD (Threshold 0 - Extend 0.4)', 'F1-Score', 'Modello', 'f1_comparison_thr0_ext4.png')
+
+    df_final5 = pd.concat([df_rf5, df_dt5])
+    plot_comparison('model', 'accuracy', 'RFD', df_final5,
+                    'Confronto dell\'Accuratezza tra Random Forest e Decision Tree con e senza RFD (Threshold 0 - Extend 0.5)', 'Accuratezza', 'Modello', 'accuracy_comparison_thr0_ext5.png')
+
+    plot_comparison('model', 'precision', 'RFD', df_final5,
+                    'Confronto della Precisione tra Random Forest e Decision Tree con e senza RFD (Threshold 0 - Extend 0.5)', 'Precisione', 'Modello', 'precision_comparison_thr0_ext5.png')
+
+    plot_comparison('model', 'recall', 'RFD', df_final5,
+                    'Confronto della Recall tra Random Forest e Decision Tree con e senza RFD (Threshold 0 - Extend 0.5)', 'Recall', 'Modello', 'recall_comparison_thr0_ext5.png')
+
+    plot_comparison('model', 'f1-score', 'RFD', df_final5,
+                    'Confronto dell\'F1-Score tra Random Forest e Decision Tree con e senza RFD (Threshold 0 - Extend 0.5)', 'F1-Score', 'Modello', 'f1_comparison_thr0_ext5.png')
+
 
 if __name__ == "__main__":
     main()
