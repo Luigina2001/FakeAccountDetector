@@ -52,10 +52,14 @@ def evaluate_model(model, X_test, y_test):
     print('Confusion Matrix:')
     print(confusion_matrix(y_test, y_pred))
 
-    # salvataggio delle metriche in un file csv
-    with open('metrics.csv', 'w') as f:
-        f.write('accuracy, precision, recall, f1-score\n')
-        f.write(f'{accuracy}, {precision}, {recall}, {f1}')
+    # salvataggio delle metriche in un file csv usando come separatore il punto e virgola
+    metrics = pd.DataFrame({
+        'accuracy': [accuracy],
+        'precision': [precision],
+        'recall': [recall],
+        'f1-score': [f1]
+    })
+    metrics.to_csv('metrics.csv', sep=',', index=False)
 
 def plot_and_save_confusion_matrix(model, X_test, y_test, type_model):
     model_names = {'rf': 'Random Forest', 'dt': 'Decision Tree', 'svm': 'Support Vector Machine', 'knn': 'K-Nearest Neighbors'}
