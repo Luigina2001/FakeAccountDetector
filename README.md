@@ -1,6 +1,6 @@
 <div align="center">
 
-# Fake Account Detector :lock:
+# Fake Account Detector :white_check_mark:
 
 [Amendola Daniela](https://github.com/dany-el92), [Costante Luigina](https://github.com/Luigina2001)
 
