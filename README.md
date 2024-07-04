@@ -1,6 +1,8 @@
 <div align="center">
 
-# Fake Account Detector
+# Fake Account Detector:shield:
+
+[Amendola Daniela](https://github.com/dany-el92), [Costante Luigina](https://github.com/Luigina2001)
 
 </div>
 
