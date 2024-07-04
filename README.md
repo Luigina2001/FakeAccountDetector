@@ -60,16 +60,18 @@ pip install -r requirements.txt
 ## Citazione del Dataset
 
 Per ulteriori informazioni circa il dataset utilizzato in questo progetto (`instagram2/user_fake_authentic_2class.csv`), fare riferimento al seguente articolo:
+```BibTeX
 @article{purba2020classification,
-title={Classification of instagram fake users using supervised machine learning algorithms},
-author={Purba, Kristo Radion and Asirvatham, David and Murugesan, Raja Kumar},
-journal={International Journal of Electrical and Computer Engineering},
-volume={10},
-number={3},
-pages={2763},
-year={2020},
-publisher={IAES Institute of Advanced Engineering and Science}
+   title={Classification of instagram fake users using supervised machine learning algorithms},
+   author={Purba, Kristo Radion and Asirvatham, David and Murugesan, Raja Kumar},
+   journal={International Journal of Electrical and Computer Engineering},
+   volume={10},
+   number={3},
+   pages={2763},
+   year={2020},
+   publisher={IAES Institute of Advanced Engineering and Science}
 }
+```
 
 ## Directory `datasets`
 
