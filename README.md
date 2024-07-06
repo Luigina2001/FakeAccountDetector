@@ -10,7 +10,7 @@
 
 1. [Introduzione](#introduzione)
 2. [Risultati](#risultati)
-3. [Guida all'Installazione](#guida-allinstallazione)
+3. [Guida all'installazione](#guida-allinstallazione)
    - [Installare Python](#installare-python)
    - [Clonare il Repository](#clonare-il-repository)
    - [Creare l'Ambiente Virtuale](#creare-lambiente-virtuale)
@@ -26,7 +26,7 @@ In questo progetto, l'obiettivo è il rilevamento di account falsi cercando di d
 # Risultati 
 I risultati ottenuti dalle varie tecniche di machine learning applicate ai dataset sono riassunti nella directory `analysis_results`, dove sono presenti grafici di confronto delle metriche di accuratezza, precisione, recall e F1-score.
 
-# Guida all'Installazione
+# Guida all'installazione
 
 Per installare i requisiti necessari al progetto, seguire i passaggi seguenti.
 
@@ -108,11 +108,13 @@ Per ulteriori informazioni circa il dataset utilizzato in questo progetto (`inst
 - `decision_tree/dt_roc_curve.png`: Curva ROC del modello Decision Tree.
 - `decision_tree/metrics.csv`: Metriche di valutazione del modello Decision Tree.
 
+
 - `KNN/knn.py`: Script per addestrare un modello K-Nearest Neighbors.
 - `KNN/knn_confusion_matrix.png`: Matrice di confusione del modello K-Nearest Neighbors.
 - `KNN/knn_model.pkl`: Modello K-Nearest Neighbors salvato.
 - `KNN/knn_roc_curve.png`: Curva ROC del modello K-Nearest Neighbors.
 - `KNN/metrics.csv`: Metriche di valutazione del modello K-Nearest Neighbors.
+
 
 - `random_forest/random_forest.py`: Script per addestrare un modello Random Forest.
 - `random_forest/rf_confusion_matrix.png`: Matrice di confusione del modello Random Forest.
@@ -120,13 +122,16 @@ Per ulteriori informazioni circa il dataset utilizzato in questo progetto (`inst
 - `random_forest/rf_roc_curve.png`: Curva ROC del modello Random Forest.
 - `random_forest/metrics.csv`: Metriche di valutazione del modello Random Forest.
 
+
 - `SVM/svm.py`: Script per addestrare un modello Support Vector Machine.
 - `SVM/svm_confusion_matrix.png`: Matrice di confusione del modello Support Vector Machine.
 - `SVM/svm_model.pkl`: Modello Support Vector Machine salvato.
 - `SVM/svm_roc_curve.png`: Curva ROC del modello Support Vector Machine.
 - `SVM/metrics.csv`: Metriche di valutazione del modello Support Vector Machine.
 
+
 - `utils.py`: Script di utilità per varie funzioni di supporto.
+
 
 - `classificazione_con_RFD/data_initialization.py`: Script per l'inizializzazione dei dati.
 - `classificazione_con_RFD/main.py`: Script principale per la classificazione con RFD.
@@ -141,6 +146,7 @@ Contiene i file CSV relativi ai dataset ottenuti a seguito del processo di aggiu
 ## Directory `analysis_results`
 
 - `analysis.py`: Script per effettuare l'analisi dei risultati.
+
 
 Immagini dei grafici relativi le metriche ottenute in `analysis.py`:
 - `accuracy_comparison.png`
